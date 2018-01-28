@@ -20,19 +20,31 @@ class AlarmActivity : AppCompatActivity() {
         /* Minute set Event Onclick Listener */
         minute_plus_button.setOnClickListener({ plusMinute() })
         minute_subtract_button.setOnClickListener({ subtractMinute() })
-        /* Minute set Event Onclick Listener */
+        /* TimeZone set Event Onclick Listener */
         timezone_am_button.setOnClickListener({ updateTimezone("AM") })
         timezone_pm_button.setOnClickListener({ updateTimezone("PM") })
     }
 
     fun plusHour() {
-        alert("PlusHour")
-        updateHour("6")
+        var hour: Int = Integer.parseInt(hour_text.text.toString())
+        hour++
+
+        if (hour <= 12) {
+            updateHour(hour.toString())
+        } else {
+            alert("You are reached the maximum hour ")
+        }
     }
 
     fun subtractHour() {
-        alert("SubtractHour")
-        updateHour("2")
+        var hour: Int = Integer.parseInt(hour_text.text.toString())
+        hour--
+
+        if (hour > 0) {
+            updateHour(hour.toString())
+        } else {
+            alert("You are reached the minimum hour ")
+        }
     }
 
     fun plusMinute() {
