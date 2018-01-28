@@ -2,4 +2,5 @@
     <string name="app_name">MyFirstKotlinApp</string>
     <string name="hello_word_text">0</string>
     <string name="heading_title">Here is a random number between 0 and %1d</string>
+    <string name="add_alarm_title">Add Alarm</string>
 </resources>
