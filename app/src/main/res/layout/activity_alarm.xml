@@ -33,6 +33,45 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/hour_plus_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/colorWhite"
+                android:fontFamily="sans-serif"
+                android:text="+"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/hour_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="0"
+                android:textColor="@color/colorWhite"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/hour_subtract_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@color/colorWhite"
+                android:fontFamily="sans-serif"
+                android:text="-"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
                 android:id="@+id/minute_plus_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,42 +111,7 @@
             android:orientation="vertical">
 
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/colorWhite"
-                android:fontFamily="sans-serif"
-                android:text="+"
-                android:textSize="24sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                android:text="0"
-                android:textColor="@color/colorWhite"
-                android:textSize="30sp" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/colorWhite"
-                android:fontFamily="sans-serif"
-                android:text="-"
-                android:textSize="24sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <Button
+                android:id="@+id/timezone_am_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -117,6 +121,7 @@
                 android:textSize="24sp" />
 
             <TextView
+                android:id="@+id/timezone_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -127,6 +132,7 @@
                 android:textSize="30sp" />
 
             <Button
+                android:id="@+id/timezone_pm_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -140,6 +146,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/save_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/alarmButtons"
