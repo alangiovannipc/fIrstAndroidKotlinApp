@@ -1,5 +1,6 @@
 package com.belatrix.apolar.myfirstkotlinapp
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -23,6 +24,8 @@ class AlarmActivity : AppCompatActivity() {
         /* TimeZone set Event Onclick Listener */
         timezone_am_button.setOnClickListener({ updateTimezone("AM") })
         timezone_pm_button.setOnClickListener({ updateTimezone("PM") })
+        /* SaveButton set Event Onclick listener */
+        save_button.setOnClickListener({ saveAlarm() })
     }
 
     fun plusHour() {
@@ -48,13 +51,25 @@ class AlarmActivity : AppCompatActivity() {
     }
 
     fun plusMinute() {
-        alert("PlusMinute")
-        updateMinute("32")
+        var minute: Int = Integer.parseInt(minute_text.text.toString())
+        minute++
+
+        if (minute <= 59) {
+            updateMinute(minute.toString())
+        } else {
+            alert("You are reached the maximum minute ")
+        }
     }
 
     fun subtractMinute() {
-        alert("SubtractMinute")
-        updateMinute("10")
+        var minute: Int = Integer.parseInt(minute_text.text.toString())
+        minute--
+
+        if (minute >= 0) {
+            updateMinute(minute.toString())
+        } else {
+            alert("You are reached the minimum minute ")
+        }
     }
 
     fun updateHour(hour: String) {
@@ -62,7 +77,12 @@ class AlarmActivity : AppCompatActivity() {
     }
 
     fun updateMinute(minute: String) {
-        minute_text.text = minute
+        if (Integer.parseInt(minute) <= 9) {
+            minute_text.text = "0" + minute
+        } else {
+            minute_text.text = minute
+        }
+
     }
 
     fun updateTimezone(timezone: String) {
@@ -74,5 +94,11 @@ class AlarmActivity : AppCompatActivity() {
         myToast.show()
     }
 
+    fun saveAlarm() {
+        val detailAlarmIntent = Intent(this, DetailAlarmActivity::class.java)
+        val newDetailAlarm = hour_text.text.toString() + ":" + minute_text.text.toString() + " " + timezone_text.text.toString()
+        detailAlarmIntent.putExtra(DetailAlarmActivity.NEW_ALARM, newDetailAlarm)
+        startActivity(detailAlarmIntent)
+    }
 
 }
